@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-const API_URL = 'http://localhost:5000/api'
+const API_URL = 'https://heroic-sparkle.railway.app/api'
 const creds = {
   admin: { email: 'admin@clinic.com', password: 'Admin@123' },
   doctor: { email: 'doctor@clinic.com', password: 'Doctor@123' },

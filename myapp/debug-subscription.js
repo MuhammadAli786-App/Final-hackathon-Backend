@@ -1,7 +1,6 @@
 import fetch from 'node-fetch'
 
-const API_URL = 'http://localhost:5000/api'
-
+const API_URL = process.env.BACKEND_URL || 'https://heroic-sparkle.railway.app/api'
 async function debugSubscription() {
   try {
     // Login as doctor

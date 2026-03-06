@@ -1,6 +1,6 @@
 // Test that simulates the AdminDashboard frontend fetching data
 
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://heroic-sparkle.railway.app/api';
 let adminToken = '';
 
 async function test() {

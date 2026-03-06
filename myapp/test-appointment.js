@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 async function run() {
   // login and schedule
-  const loginRes = await fetch('http://localhost:5000/api/auth/login',{
+  const loginRes = await fetch('https://heroic-sparkle.railway.app/api/auth/login',{
     method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({email:'patient@clinic.com', password:'Patient@123'})
   });
@@ -11,7 +11,7 @@ async function run() {
   console.log('token ok', !!token);
 
   // fetch a real doctor id
-  const doctorsRes = await fetch('http://localhost:5000/api/users?role=doctor', {
+  const doctorsRes = await fetch('https://heroic-sparkle.railway.app/api/users?role=doctor', {
     headers: { Authorization: 'Bearer '+token }
   });
   const doctors = await doctorsRes.json();
@@ -19,7 +19,7 @@ async function run() {
   console.log('using doctorId', doctorId);
 
   // try booking
-  const apptRes = await fetch('http://localhost:5000/api/appointments', {
+  const apptRes = await fetch('https://heroic-sparkle.railway.app/api/appointments', {
     method:'POST',
     headers: { 'Content-Type':'application/json', Authorization: 'Bearer '+token },
     body: JSON.stringify({

@@ -1,6 +1,6 @@
 // Test admin access to patients, doctors, and receptionists endpoints
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'https://heroic-sparkle.railway.app'; // Change to localhost if testing locally
 
 let adminToken = '';
 

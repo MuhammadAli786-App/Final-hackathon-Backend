@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 
-const API_URL = 'http://localhost:5000/api'
+const API_URL = 'https://heroic-sparkle.railway.app/api'
 
 async function comprehensiveTest() {
   console.log('🧪 Comprehensive Appointment Management Test\n')

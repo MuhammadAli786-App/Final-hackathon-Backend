@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-const base = `http://localhost:${process.env.PORT||5000}`;
+const base = process.env.BACKEND_URL || "https://heroic-sparkle.railway.app";
 (async()=>{
   const loginRes = await fetch(`${base}/api/auth/login`,{
     method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email:'admin@clinic.com', password:'Admin@123'})

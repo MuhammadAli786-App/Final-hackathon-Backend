@@ -4,7 +4,7 @@
  * Tests all core admin functionality
  */
 
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://heroic-sparkle.railway.app/api';
 let adminToken = '';
 const timestamp = Date.now();
 

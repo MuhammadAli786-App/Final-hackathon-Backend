@@ -1,7 +1,6 @@
 import fetch from 'node-fetch'
 
-const API_URL = 'http://localhost:5000/api'
-
+const API_URL = process.env.BACKEND_URL || 'https://heroic-sparkle.railway.app/api';
 // Demo accounts for testing
 const accounts = {
   admin: { email: 'admin@clinic.com', password: 'Admin@123' },

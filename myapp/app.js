@@ -19,8 +19,24 @@ dotenv.config();
 cloudinaryConfig();
 const app = express();
 
-// ✅ Middlewares
-app.use(cors());
+// ✅ Middlewares;
+
+const allowedOrigins = [
+  'http://localhost:5173',   // local frontend
+  'https://myapp-wine-omega.vercel.app' // deployed frontend
+];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    if(!origin) return callback(null, true); // Postman or curl requests
+    if(allowedOrigins.indexOf(origin) === -1){
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true
+}));
 
 app.use(express.json());
 

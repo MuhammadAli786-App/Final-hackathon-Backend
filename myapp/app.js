@@ -21,19 +21,24 @@ const app = express();
 
 // ✅ Middlewares;
 
+
 const allowedOrigins = [
-  'http://localhost:5173',   // local frontend
-  'https://myapp-wine-omega.vercel.app' // deployed frontend
+  "http://localhost:5173",
+  "https://myapp-wine-omega.vercel.app"
 ];
 
 app.use(cors({
-  origin: function(origin, callback) {
-    if(!origin) return callback(null, true); // Postman or curl requests
-    if(allowedOrigins.indexOf(origin) === -1){
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
+  origin: function (origin, callback) {
+
+    // Postman / server-to-server requests
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
     }
-    return callback(null, true);
+
   },
   credentials: true
 }));
